@@ -1,0 +1,29 @@
+<div [ngClass]="routeAnimationsElements">
+  <mat-card [matBadge]="count$ | async" [matBadgeHidden]="!count$ | async" matBadgeSize="medium" matBadgeColor="accent"
+    class="mat-card-repository">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon [svgIcon]="repository.repositoryType"></mat-icon>
+      </div>
+      <div class="chip-card-right">
+        <mat-chip-list class="float-right">
+          <mat-chip color="primary" selected>{{repository.repositoryType}}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <mat-card-title>{{repository.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{repository.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button [routerLink]="['/repos/repository/', repository.id]" color="accent">
+          <mat-icon>infos</mat-icon>
+      </button>
+      <button mat-raised-button (click)="onDeleteClick()" class="danger">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

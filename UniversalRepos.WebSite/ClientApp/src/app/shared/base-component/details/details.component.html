@@ -1,0 +1,16 @@
+<dl class="row">
+  <ng-container *ngFor="let field of fields">
+    <dt class="col-4">{{ field.label }}</dt>
+    <ng-container [ngSwitch]="field.type">
+      <dd *ngSwitchCase="'date'" class="col-8">{{ element[field.id] | dateTime }}</dd>
+      <dd *ngSwitchCase="'octets'" class="col-8">{{ element[field.id] | octet }}</dd>
+      <dd *ngSwitchCase="'boolean'" class="col-8">
+        <mat-checkbox [checked]="element[field.id]" disabled="disabled"></mat-checkbox>
+      </dd>
+      <dd *ngSwitchCase="'url'" class="col-8">
+        <span [innerHtml]="element[field.id] | linky: {truncate: { length: 30, location: 'middle'}}"></span>
+      </dd>
+      <dd *ngSwitchDefault class="col-8">{{ element[field.id] }}</dd>
+    </ng-container>
+  </ng-container>
+</dl>

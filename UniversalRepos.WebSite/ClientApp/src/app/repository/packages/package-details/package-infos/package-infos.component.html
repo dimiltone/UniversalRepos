@@ -1,0 +1,23 @@
+<div class="container" *ngIf="package$ | async as package">
+  <mat-card>
+    <div class="float-right">
+      <mat-chip-list>
+        <mat-chip color="accent">{{package.repositoryType}}</mat-chip>
+      </mat-chip-list>
+    </div>
+      <mat-card-header>
+          <mat-card-title class="title">{{ package.name }}</mat-card-title>
+          <mat-card-subtitle>{{ package.repository }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <app-details [fields]="fields" [element]="package"></app-details>
+          <!-- <dl class="row">
+            <dt class="col-4">Nom</dt>
+            <dd class="col-4">{{ package.name }}</dd>
+          </dl> -->
+      </mat-card-content>
+      <!-- <mat-card-footer>
+          Footer
+      </mat-card-footer> -->
+  </mat-card>
+</div>

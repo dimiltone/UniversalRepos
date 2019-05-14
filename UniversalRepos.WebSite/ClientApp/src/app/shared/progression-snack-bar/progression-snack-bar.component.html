@@ -1,0 +1,7 @@
+<div class="col-12">
+  <button mat-raised-button class="float-right" color="primary" *ngIf="isFinished" (click)="onClick()">FERMER</button>
+  <div class="title" *ngIf="message && !isFinished">{{message}}</div>
+  <div class="title" *ngIf="isFinished">{{finished}}</div>
+  <div class="float-right">{{progression}} / {{totalValue}}</div>
+  <mat-progress-bar mode="determinate" [value]="percent"></mat-progress-bar>
+</div>

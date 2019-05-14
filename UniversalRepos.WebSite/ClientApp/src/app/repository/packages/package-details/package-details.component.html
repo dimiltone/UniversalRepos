@@ -1,0 +1,22 @@
+<div class="jumbotron" *ngIf="package$ | async as repoPackage">
+  <h1 [ngClass]="routeAnimationsElements">{{repoPackage.name}}</h1>
+  <hr />
+  <!-- <mat-chip-list>
+    <mat-chip color="accent" selected>{{importCount}} Importé(s)</mat-chip>
+    <mat-chip color="primary" selected>{{count}} Package(s)</mat-chip>
+  </mat-chip-list> -->
+  <div class="col-12">
+    <!-- <button class="float-right" mat-raised-button (click)="onImportClick(repoPackage)" color="accent">
+      <mat-icon>sync</mat-icon>
+      Synchroniser
+    </button> -->
+  </div>
+</div>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link *ngFor="let link of links" [routerLink]="link.value" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
+<div [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
+    <router-outlet #o="outlet"></router-outlet>
+</div>

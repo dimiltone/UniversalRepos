@@ -1,0 +1,64 @@
+@import '~@angular/material/theming';
+@import 'styles-variables';
+
+@mixin MyPlaces-styles-reset-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  //$background: map-get($theme, background);
+  a {
+    color: mat-color($foreground, text);
+
+    &:hover {
+      color: mat-color($accent);
+    }
+  }
+  .mat-stroked-button.mat-accent {
+    border-color: mat-color($accent) !important;
+  }
+  .mat-stroked-button.mat-accent {
+    border-color: mat-color($accent) !important;
+  }
+  .mat-stroked-button.info {
+    color: mat-color($accent, lighter) !important;
+    border-color: mat-color($accent, lighter) !important;
+  }
+  .mat-raised-button.info {
+    background-color: mat-color($accent, lighter) !important;
+    color:$color-brown !important;
+  }
+  .mat-stroked-button.mat-warn {
+    border-color: $color-orange !important;
+  }
+  .mat-stroked-button.mat-warn {
+    border-color: $color-orange !important;
+  }
+  code {
+    color: mat-color($accent, lighter-contrast);
+    background-color: mat-color($accent, lighter);
+  }
+  .mat-card-repository {
+    padding: 0px;
+    mat-card-header {
+      background-color: mat-color($accent, lighter);
+      .mat-card-avatar {
+        padding: 10px;
+      }
+      mat-card-title {
+        padding-top: 10px;
+      }
+    }
+    mat-card-content {
+      padding: 15px;
+    }
+    mat-card-actions {
+      border-top: 1px solid $color-blue;
+      margin: 0px;
+      padding-bottom: 1em;
+    }
+  }
+  .mat-card>.mat-card-actions:last-child {
+    padding-bottom: 1em !important;
+  }
+}

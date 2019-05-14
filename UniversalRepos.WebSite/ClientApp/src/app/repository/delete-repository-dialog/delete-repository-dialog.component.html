@@ -1,0 +1,23 @@
+<div class="col-12">
+  <div class="float-right">
+    <button class="title" mat-mini-fab (click)="onNoClick()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</div>
+<div>
+  <h1 mat-dialog-title class="dialog-title">Supprimer un repository</h1>
+  <div mat-dialog-content>
+    <div class="alert alert-danger">
+      <h2>Supprimer le Repository</h2>
+      <hr />
+      <p>Cette action ne supprimera pas le repository physiquement mais uniquement sa gestion via l'application.</p>
+    </div>
+  </div>
+  <div mat-dialog-actions class="float-right">
+    <button mat-button type="button" (click)="onNoClick()" cdkFocusInitial>Annuler</button>
+    <button matTooltip="Erreur" mat-raised-button type="button" (click)="onDeleteClick()" class="danger">
+      <mat-icon class="mat-18">delete_outline</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,189 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'themes/styles-select-list';
+@import 'themes/styles-variables';
+@import 'themes/style-table';
+@import 'themes/styles-reset';
+@import 'themes/styles-reset-theme.scss';
+@import 'themes/styles-toaster.scss';
+@import 'themes/style-dialog.scss';
+@import 'themes/styles-expansion';
+@import 'themes/styles-button';
+@import 'app/app.component-theme';
+@import '../node_modules/@angular/material/theming';
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/bootstrap/scss/mixins/_alert';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap/scss/_alert';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+@include mat-core();
+@mixin custom-components-theme($theme) {
+    @include MyPlaces-styles-reset-theme($theme);
+    @include MyPlaces-app-component-theme($theme);
+}
+
+@import 'themes/default-theme.scss';
+@import 'themes/black-theme.scss';
+.default-theme {
+    @include angular-material-theme($theme-default);
+    @include custom-components-theme($theme-default);
+  .mat-dialog-container{
+    background-color: #455a64 !important;
+    color: white !important;
+    overflow: hidden !important;
+    .mat-dialog-content{
+      background-color: white !important;
+      color:black !important;
+    }
+  }
+  .dialog-title {
+    background-color: #455a64 !important;
+    color: $color-blue !important;
+  }
+}
+
+.black-theme {
+    @include angular-material-theme($theme-black);
+    @include custom-components-theme($theme-black);
+  .mat-dialog-content{
+    background-color: #424242 !important;
+    overflow: hidden !important;
+  }
+
+  .mat-dialog-container{
+    background-color: #303030 !important;
+    color: white !important;
+  }
+  .dialog-title {
+    background-color: #303030 !important;
+    color: $color-blue !important
+  }
+}
+
+.title {
+    font-size: 30px;
+    color: $color-blue;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+hr {
+    border-top: 1px solid $color-blue;
+}
+.mat-pseudo-checkbox-checked::after {
+  top: 0 !important;
+  left: 0 !important;
+  width: 12px !important;
+  height: 7px !important;
+}
+.mat-select-arrow {
+  margin: 0 4px 0 20px !important;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-slide-toggle {
+    line-height: 65px;
+    height: 65px !important;
+    vertical-align: bottom !important;
+}
+.mat-tab-nav-bar {
+    margin-bottom: 10px ;
+}
+mat-card {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    mat-card-title {
+        margin-bottom: 5px;
+    }
+    .subtitle {
+        text-align: right;
+        mat-icon {
+            width: 8px;
+        }
+    }
+    mat-card-actions {
+        text-align: right;
+        .myactions {
+            margin: 20px !important;
+            font-weight: bold !important;
+            color: $color-brown !important;
+        }
+    }
+    mat-card-content {
+        padding-top: 15px;
+    }
+}
+
+code {
+    font-size: 18px;
+    margin: 5px;
+}
+
+.bordered-right {
+    border: 2px;
+    border-color: $color-blue;
+    border-style: none solid none none;
+}
+
+
+mat-spinner {
+    margin: auto;
+}
+
+.drawer {
+    width: 40%;
+    height: 100%;
+    margin: 10px;
+    border: 1px solid #555;
+    position: absolute;
+}
+
+mat-drawer-container {
+    height: 90%;
+}
+
+.spinner-container {
+    height: 95% !important;
+    width: 100% !important;
+    position: fixed;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.black-theme .mat-progress-spinner circle,
+.black-theme .mat-spinner circle {
+    stroke: $color-blue;
+}
+
+.mat-dialog-content {
+    padding: 24px !important;
+}
+
+.container {
+    margin-bottom: 24px !important;
+}
+
+.expansion-panel {
+    margin-bottom: 25px !important;
+    flex-basis: 0;
+    .expansion-panel-title {
+        // display: block !important;
+        flex-basis: 0;
+    }
+}
+
+.expansion-panel-description {
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 0;
+}
+
+
+

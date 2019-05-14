@@ -1,0 +1,20 @@
+<mat-nav-list>
+  <mat-accordion [multi]="false" mat-list-item>
+    <mat-expansion-panel hideToggle class="menu-expansion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Administration
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-list-item (click)="close()" [routerLink]='["/fetch-data"]' routerLinkActive="active">
+        Données
+      </mat-list-item>
+      <mat-list-item (click)="close()" [routerLink]='["/counter"]' routerLinkActive="active">
+        Compteur
+      </mat-list-item>
+      <mat-list-item (click)="close()" [routerLink]='["/administration"]' routerLinkActive="active">
+        Administration
+      </mat-list-item>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-nav-list>

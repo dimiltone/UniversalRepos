@@ -1,0 +1,124 @@
+@import 'styles-variables';
+
+.danger {
+  background-color: rgb(110, 15, 15) !important;
+  color: white !important;
+}
+
+.danger:hover {
+  font-weight: bold !important;
+}
+
+.btn-link {
+  color: #ffffff;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: #01968f;
+}
+
+.btn-link:hover {
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: #01968f;
+}
+
+.danger.mat-raised-button {
+  min-width: 88px !important;
+}
+
+.danger.mat-stroked-button {
+  border-color: white !important;
+}
+
+.primary {
+  background-color: $color-primary !important;
+  color: $color-brown !important;
+}
+
+.primary:hover {
+  font-weight: bold;
+  color: white !important;
+}
+
+.blue {
+  background-color: $color-blue !important;
+  color: $color-brown !important;
+}
+
+.blue:hover {
+  font-weight: bold;
+  color: white !important;
+}
+
+.info:hover {
+  font-weight: bold;
+  color: white !important;
+}
+
+
+.submit-button {
+  background-color: $color-orange !important;
+  color: $color-brown !important;
+  min-width: 88px !important;
+}
+
+.submit-button:hover {
+  color: white !important;
+  font-weight: bold;
+}
+
+.submit-button[disabled] {
+  color: rgba(255, 255, 255, .3) !important;
+  background-color: rgba(255, 255, 255, .12) !important;
+}
+
+.button-row {
+  button {
+    margin-right: 10px;
+  }
+}
+
+.mat-raised-button {
+  min-width: 88px !important;
+}
+
+.mat-stroked-button {
+  min-width: 88px !important;
+}
+
+.material-icons.md-18 {
+  font-size: 18px !important;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px !important;
+}
+
+.material-icons.md-48 {
+  font-size: 48px !important;
+}
+
+.success {
+  background-color: $color-primary !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.warning {
+  background-color: #df5f20 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.mat-dialog-actions {
+  button {
+    margin-right: 1em;
+  }
+}

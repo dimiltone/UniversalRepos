@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalRepos.WebSite", "UniversalRepos.WebSite\UniversalRepos.WebSite.csproj", "{14432063-E178-470A-B7E0-5632D3F8A38C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversalRepos.Datas", "UniversalRepos.Datas\UniversalRepos.Datas.csproj", "{D18D45A4-9C79-48E5-9614-DA1641BE41F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14432063-E178-470A-B7E0-5632D3F8A38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14432063-E178-470A-B7E0-5632D3F8A38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14432063-E178-470A-B7E0-5632D3F8A38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14432063-E178-470A-B7E0-5632D3F8A38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D18D45A4-9C79-48E5-9614-DA1641BE41F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18D45A4-9C79-48E5-9614-DA1641BE41F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18D45A4-9C79-48E5-9614-DA1641BE41F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18D45A4-9C79-48E5-9614-DA1641BE41F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1F34A55-70DB-4756-B8C1-F8FAB5BB0B5C}
+	EndGlobalSection
+EndGlobal

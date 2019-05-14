@@ -1,0 +1,5 @@
+<div class="col-12" [@visibilityChanged]="visible" *ngIf="repositoryTypes$ | async as results">
+  <h1>Types de Repositories</h1>
+  <hr />
+  <app-client-side-table [expandable]="false" [columns]="columns" [results]="results"></app-client-side-table>
+</div>

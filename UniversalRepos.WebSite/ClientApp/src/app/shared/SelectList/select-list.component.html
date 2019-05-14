@@ -1,0 +1,15 @@
+<div class="mat-form-field-wrapper">
+  <div class="mat-form-field-flex">
+    <div class="mat-form-field-outline" style="width: 100%;">
+      <div class="mat-form-field-outline-thick" [ngClass]="{'invalid': !control.valid}">
+        <ng-select
+          appendTo="body"
+          bindValue="value"
+          bindLabel="label"
+          (change)="onChange($event)"
+          [placeholder]="placeHolder"
+          [items]="options"></ng-select>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="toolbar">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="openSideNav()">
+        <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
+      </button>
+
+      <span routerLink="" class="branding spacer center d-inline d-sm-none">
+        <img [src]="logo" />
+      </span>
+      <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo" />
+        {{applicatioName}}
+      </span>
+      <span class="branding spacer d-none d-md-inline"><img [src]="logo" /> {{applicatioName}}
+        <button mat-mini-fab (click)="previousClick()" style="margin-right:10px;" class="info">
+          <mat-icon class="mat-18">arrow_back</mat-icon>
+        </button>
+        <button mat-mini-fab (click)="nextClick()" style="margin-right:10px;" class="info">
+          <mat-icon class="mat-18">arrow_forward</mat-icon>
+        </button>
+      </span>
+      <!-- <button mat-icon-button (click)="toggleDrawer()" style="margin-right: 15px;">
+          <mat-icon class="md-36">info_outline</mat-icon>
+      </button> -->
+
+
+      <!-- <button mat-raised-button [matMenuTriggerFor]="toolbarUserMenu" style="font-size: 20px;">
+        {{userName$ | async}}
+
+      </button> -->
+      <span style="padding-right: 15px;">
+        <button routerLink="/repos" mat-icon-button style="font-size: 20px;">
+          <mat-icon svgIcon="database"></mat-icon>
+        </button>
+      </span>
+      <span style="padding-right: 15px;">
+        <button (click)="onCreationClick()" mat-icon-button style="font-size: 20px;">
+          <mat-icon class="md-36">add_circle</mat-icon>
+        </button>
+      </span>
+      <span style="padding-right: 15px;">
+        <button mat-icon-button [matMenuTriggerFor]="toolbarUserMenu" style="font-size: 20px;">
+          <mat-icon class="md-36">person_pin_circle</mat-icon>
+        </button>
+      </span>
+      <mat-menu #toolbarUserMenu="matMenu">
+        <!-- <button mat-menu-item routerLink="home/account">
+          <mat-icon fontSet="fas" fontIcon="fa-user"></mat-icon>
+          <span>Compte</span>
+        </button>
+        <button mat-menu-item (click)="onLogOutClick()">
+          <mat-icon fontSet="fas" fontIcon="fa-power-off"></mat-icon>
+          <span>Log Out</span>
+        </button> -->
+        <button mat-menu-item (click)="onThemeToggle()">
+          <mat-icon fontSet="fas" fontIcon="fa-cog"></mat-icon>
+          <span *ngIf="theme === 'default-theme'">Sombre</span>
+          <span *ngIf="theme === 'black-theme'">Clair</span>
+        </button>
+      </mat-menu>
+      <button mat-icon-button routerLink="/" style="font-size: 20px;margin-right: 15px;">
+        <mat-icon class="md-36">home</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>

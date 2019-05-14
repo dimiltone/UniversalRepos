@@ -1,0 +1,15 @@
+@import 'styles-variables';
+
+$theme-primary: mat-palette($mat-blue-grey);
+$theme-accent: mat-palette($mat-teal);
+$theme-warn: mat-palette($mat-deep-orange, A200);
+$theme-default: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+@mixin custom-components-theme($theme) {
+  @include MyPlaces-styles-reset-theme($theme);
+  @include MyPlaces-app-component-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+}
+
+

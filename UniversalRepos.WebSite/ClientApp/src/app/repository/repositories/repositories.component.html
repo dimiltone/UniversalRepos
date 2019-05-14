@@ -1,0 +1,7 @@
+<div *ngIf="repositories$ | async as repositories" class="col-12">
+  <div *ngFor="let item of repositories">
+    <div class="col-3">
+      <app-repository-card (askDelete)="onDelete($event)" [repo]="item"></app-repository-card>
+    </div>
+  </div>
+</div>

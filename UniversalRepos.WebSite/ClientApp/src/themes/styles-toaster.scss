@@ -1,0 +1,98 @@
+@import 'styles-variables';
+.toaster-success {
+    background-color: $color-primary !important;
+    color: white !important;
+    font-weight: bold !important;
+    .mat-simple-snackbar {
+        align-items: center;
+        button {
+            background-color: $color-primary !important;
+        }
+    }
+}
+
+.toaster-error {
+    background-color: rgb(110, 15, 15) !important;
+    color: white !important;
+    font-weight: bold !important;
+    // max-width: 500px !important;
+    // flex: 0 0 500px !important;
+    // position: absolute !important;
+    overflow-wrap: break-all;
+    word-wrap: break-all;
+    text-align: center !important;
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    .mat-simple-snackbar {
+        align-items: center;
+        button {
+            background-color: $color-danger !important;
+            color: white;
+        }
+    }
+}
+
+.toaster-warning {
+    background-color: $color-warn !important;
+    color: white !important;
+    font-weight: bold !important;
+    max-width: 500px !important;
+    flex: 1 1 500px !important;
+    text-align: center !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center !important;
+    -ms-word-break: break-word;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    .mat-simple-snackbar {
+        align-items: center;
+        button {
+            color: white !important;
+            background-color: $color-orange !important;
+        }
+    }
+}
+
+.notify-snackbar {
+    background: #323232 !important;
+    color: white !important;
+}
+.progress-snackbar {
+  min-width: 500px !important;
+  background: $grey-background !important;
+  color: white !important;
+  .mat-simple-snackbar-action {
+    color: $color-primary !important;
+    font-weight: bold !important;
+  }
+}
+.notify-snackbar .mat-simple-snackbar-action {
+    color: $color-primary !important;
+    font-weight: bold !important;
+}
+
+@keyframes snackbarIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        ransform: translateY(100px);
+        opacity: 1;
+    }
+}

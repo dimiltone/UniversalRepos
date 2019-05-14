@@ -1,0 +1,66 @@
+<div class="col-12">
+  <div class="float-right">
+    <button class="title" mat-mini-fab (click)="onNoClick()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</div>
+<div>
+  <h1 mat-dialog-title class="dialog-title">Créer un repository</h1>
+  <form [formGroup]="repositoryCreationForm" validate (ngSubmit)="onValidate()">
+    <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
+    <div mat-dialog-content>
+      <h2 class="title">Ajouter un Repository</h2>
+      <hr />
+      <div mat-dialog-content>
+        <div class="row">
+          <div class="col-7 offset-1">
+            <mat-form-field appearance="fill" color="accent">
+              <mat-label>Url</mat-label>
+              <input autocomplete="off" matInput formControlName="url" />
+              <mat-icon matSuffix>public</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="col-2 offset-1">
+            <mat-slide-toggle matInput formControlName="isPublic">Public</mat-slide-toggle>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5 offset-1">
+            <mat-form-field appearance="standard" color="accent">
+              <mat-label>Nom</mat-label>
+              <input autocomplete="off" matInput formControlName="name" />
+            </mat-form-field>
+          </div>
+          <div class="col-4 offset-1">
+            <app-select-list [placeHolder]="'Select'" (selectedEvent)="onRepositoryTypeSelected($event)"
+              [control]="repositoryCreationForm.get('repositoryTypeId')" [options]="repositoryTypeSelectList$ | async">
+            </app-select-list>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 offset-3">
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Description</mat-label>
+              <textarea autocomplete="off" matInput formControlName="description"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div mat-dialog-actions class="float-right">
+      <button mat-button type="button" (click)="onNoClick()" cdkFocusInitial>Annuler</button>
+      <button matTooltip="Tester l'url" mat-stroked-button (click)="onTestClick()" type="button" *ngIf="!canValidate"
+        [disabled]="!repositoryCreationForm.valid" color="accent">
+        <mat-icon class="mat-18" *ngIf="!loading">launch</mat-icon>
+      </button>
+      <button matTooltip="Erreur" mat-raised-button type="button" *ngIf="isError" class="danger">
+        <mat-icon class="mat-18" *ngIf="!loading">clear</mat-icon>
+      </button>
+      <button matTooltip="Créer le repository" mat-button type="submit" *ngIf="canValidate && repositoryCreationForm.valid"
+        class="submit-button">
+        <mat-icon class="mat-18">done_all</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

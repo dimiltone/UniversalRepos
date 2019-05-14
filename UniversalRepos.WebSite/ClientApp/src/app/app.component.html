@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push">
+    <div class="branding"><img src="../assets/logo.png" />
+      <span>Menus</span>
+    </div>
+    <app-nav-menu (closed)="sidenav.close()"></app-nav-menu>
+  </mat-sidenav>
+  <app-toolbar (themeChanged)="setTheme($event)" (sideNav)="sidenav.open()" (drawer)="drawer.toggle()"></app-toolbar>
+  <!-- Body -->
+  <div class="wrapper">
+    <mat-drawer-container [hasBackdrop]="false">
+      <mat-drawer-content>
+        <div class="content" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
+          <mat-progress-bar mode="determinate" [value]="loader.progress$ | async"></mat-progress-bar>
+          <router-outlet #o="outlet"></router-outlet>
+        </div>
+      </mat-drawer-content>
+      <mat-drawer position="start" class="drawer" #drawer [mode]="'over'">
+        <!-- <app-side></app-side> -->
+      </mat-drawer>
+    </mat-drawer-container>
+    <app-footer></app-footer>
+  </div>
+</mat-sidenav-container>

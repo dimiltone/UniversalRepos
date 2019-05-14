@@ -1,0 +1,40 @@
+<div class="col-12">
+  <div class="col-12" *ngIf="activePackageId$ | async as id">
+    <button class="float-right" mat-raised-button (click)="onImportClick(id)" color="accent">
+      <mat-icon>sync</mat-icon>
+      Synchroniser
+    </button>
+    <h2>Liste des Versions</h2>
+    <hr />
+  </div>
+</div>
+<div class="col-12">
+  <div *ngIf="orderedResults" class="container-fluid">
+    <mat-accordion displayMode="flat" [multi]="false"
+                   [hideToggle]="true">
+      <mat-expansion-panel *ngFor="let result of orderedResults" [hideToggle]="true">
+        <mat-expansion-panel-header class="expansion-three-header">
+          <mat-panel-title>
+            <mat-chip-list>
+              <mat-chip selected color="accent">
+                {{result.normalizedVersion}}
+              </mat-chip>
+              {{result.title}}
+            </mat-chip-list>
+          </mat-panel-title>
+          <mat-panel-description>
+            {{result.description}}
+            <div>
+              <mat-icon *ngIf="result.isLatestVersion">star</mat-icon>
+            </div>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-nuget-package-version-details [nugetVersion]="result"></app-nuget-package-version-details>
+        <mat-action-row>
+          <button mat-raised-button color="primary" (click)="download(result)"><mat-icon>cloud_download</mat-icon></button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+

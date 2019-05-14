@@ -1,0 +1,192 @@
+@import 'styles-variables';
+
+.mat-short-column {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 65px !important;
+    max-width: 65px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-word;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-word;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+// .mat-medium-column {
+//     word-wrap: break-word !important;
+//     // flex: 0 0 200px !important;
+//     white-space: unset !important;
+//     max-width: 200px !important;
+//     overflow-wrap: break-word;
+//     word-wrap: break-word;
+//     /* Adds a hyphen where the word breaks, if supported (No Blink) */
+//     -ms-hyphens: auto;
+//     -moz-hyphens: auto;
+//     -webkit-hyphens: auto;
+//     hyphens: auto;
+// }
+
+mat-table {
+    width: 100%;
+    .highlight {
+        background-color: $color-info !important;
+    }
+    .hovered {
+        cursor: pointer !important;
+    }
+}
+.expanded-detail-row {
+  height: auto !important;
+  mat-cell {
+    display: flex;
+    justify-content: space-around;
+  }
+  // transition: 10s min-height;
+  min-height: 45px !important;
+  -webkit-transition: min-height 1s;
+  -moz-transition: min-height 1s;
+  transition: min-height 1s;
+}
+.expanded-detail-row:not(.expanded-row) {
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden;
+}
+
+.expanded-element-row {
+    cursor: pointer;
+    display: flex;
+    height: 45px;
+    align-items: center;
+    justify-self: center;
+    align-content: space-around;
+    justify-content: space-around;
+}
+.expanded-element-row:not(.expanded-row):hover {
+    background: $color-row;
+}
+
+.expanded-element-row:not(.expanded-row):active {
+    background: lightgray;
+}
+
+.expanded-element-detail {
+    overflow: hidden;
+    display: flex;
+    height: 45px;
+    align-items: center;
+    justify-self: center;
+    align-content: space-around;
+    justify-content: space-around;
+    .label {
+        font-weight: bold;
+        flex: 0 0 120px;
+        vertical-align: middle;
+        padding-right: 15px;
+    }
+}
+.expanded-element {
+    margin-right: 20px;
+}
+.mat-button-column {
+    flex: 0 0 120px !important;
+    max-width: 120px !important;
+    max-width: 120px !important;
+}
+
+.mat-medium-column {
+    word-wrap: break-word !important;
+    flex: 0 0 250px !important;
+    white-space: unset !important;
+    max-width: 250px !important;
+    margin-right: 15px !important;
+    max-width: 250px !important;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-all;
+    word-wrap: break-all;
+    overflow-wrap: break-all;
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-all;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-date-column {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 200px !important;
+    max-width: 200px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-word;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-two-buttons-column {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    width: 270px !important;
+    flex: 0 0 270px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center !important;
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    button {
+        margin: 10px;
+    }
+}
+
+.mat-three-buttons-column {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 350px !important;
+    width: 350px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: center !important;
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    button {
+        margin: 5px;
+    }
+}

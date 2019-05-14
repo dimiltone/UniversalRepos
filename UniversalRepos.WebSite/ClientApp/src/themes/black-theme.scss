@@ -1,0 +1,9 @@
+@import 'styles-variables';
+$theme-black-primary: mat-palette($mat-grey, 700, 300, 900);
+$theme-black-accent: mat-palette($mat-teal,400, 200, 800);
+$theme-black-warn: mat-palette($mat-deep-orange, A200);
+$theme-black: mat-dark-theme(
+  $theme-black-primary,
+  $theme-black-accent,
+  $theme-black-warn
+);

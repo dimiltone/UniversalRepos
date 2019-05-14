@@ -1,0 +1,146 @@
+<div [ngClass]="routeAnimationsElements">
+  <div class="row">
+    <div class="col-12">
+      <button *ngIf="create" class="float-left" color="accent" mat-raised-button (click)="createClick.emit(true)">
+        <mat-icon class="mat-18">add</mat-icon>
+      </button>
+      <div class="col-3 offset-9">
+        <mat-form-field class="filter-input float-right">
+          <input autocomplete="off" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="spinner-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <mat-table [dataSource]="dataSource" matSort [matSortActive]="sortColumn ? sortColumn : null"
+             [matSortDirection]="sortDirection ? sortDirection : null" multiTemplateDataRows>
+    <ng-container *ngIf="multiSelect" matColumnDef="select">
+      <mat-header-cell class="mat-short-column" *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell class="mat-short-column" *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+    <ng-container *ngFor="let item of displayedColumns" [matColumnDef]="item.id">
+      <ng-container *ngIf="item.sortable">
+        <mat-header-cell
+          [ngClass]="{'mat-button-column': item.type === ColumnTypes.button || item.type === ColumnTypes.buttonLink,
+                                      'mat-medium-column': item.type === ColumnTypes.medium || item.type === ColumnTypes.url,
+                                      'mat-date-column': item.type === ColumnTypes.date,
+                                      'mat-short-column': item.type === ColumnTypes.short || item.type === ColumnTypes.checkbox}"
+          *matHeaderCellDef [mat-sort-header]="item.property">
+          {{item.name}}
+        </mat-header-cell>
+      </ng-container>
+      <ng-container *ngIf="item.sortable === false">
+        <mat-header-cell
+          [ngClass]="{'mat-button-column': item.type === ColumnTypes.button || item.type === ColumnTypes.buttonLink,
+                                        'mat-medium-column': item.type === ColumnTypes.medium || item.type === ColumnTypes.url,
+                                        'mat-date-column': item.type === ColumnTypes.date,
+                                        'mat-short-column': item.type === ColumnTypes.short || item.type === ColumnTypes.checkbox}"
+          *matHeaderCellDef>
+          {{item.name}}
+        </mat-header-cell>
+      </ng-container>
+      <mat-cell [ngClass]="{'mat-button-column': item.type === ColumnTypes.button || item.type === ColumnTypes.buttonLink,
+                      'mat-date-column': item.type === ColumnTypes.date,
+                      'mat-medium-column': item.type === ColumnTypes.medium || item.type === ColumnTypes.url,
+                      'mat-short-column': item.type === ColumnTypes.short || item.type === ColumnTypes.checkbox}"
+                [ngSwitch]="item.type" *matCellDef="let row">
+        <div *ngSwitchCase="ColumnTypes.button">
+          <ng-container *ngIf="getButtonColumn(item.id) as buttonColumn">
+            <button *ngIf="buttonColumn.style !== ButtonStyle.stroked_accent && buttonColumn.style !== ButtonStyle.stroked_info"
+                    matTooltip="{{buttonColumn.tooltip ? buttonColumn.tooltip : null}}" (click)="buttonColumn.action(row)"
+                    [color]="buttonColumn.style === ButtonStyle.accent ? 'accent' : null" mat-raised-button [ngClass]="{'info': buttonColumn.style === ButtonStyle.info,
+              'danger': buttonColumn.style === ButtonStyle.danger }">
+              <mat-icon>{{buttonColumn.icon}}</mat-icon>
+            </button>
+            <button *ngIf="buttonColumn.style === ButtonStyle.stroked_accent"
+                    matTooltip="{{buttonColumn.tooltip ? buttonColumn.tooltip : null}}" mat-stroked-button color="accent"
+                    (click)="buttonColumn.action(row)">
+              <mat-icon>{{buttonColumn.icon}}</mat-icon>
+            </button>
+            <button *ngIf="buttonColumn.style === ButtonStyle.stroked_info"
+                    matTooltip="{{buttonColumn.tooltip ? buttonColumn.tooltip : null}}" mat-stroked-button class="info"
+                    (click)="buttonColumn.action(row)">
+              <mat-icon>{{buttonColumn.icon}}</mat-icon>
+            </button>
+          </ng-container>
+        </div>
+        <div *ngSwitchCase="ColumnTypes.buttonLink">
+          <ng-container *ngIf="getButtonLinkColumn(item.id) as routerLinkColumn">
+            <button *ngIf="routerLinkColumn.style !== ButtonStyle.stroked_accent && routerLinkColumn.style !== ButtonStyle.stroked_info"
+                    matTooltip="{{routerLinkColumn.tooltip ? routerLinkColumn.tooltip : null}}" mat-raised-button [ngClass]="{'info': routerLinkColumn.style === ButtonStyle.info,
+                  'danger': routerLinkColumn.style === ButtonStyle.danger }"
+                    [color]="routerLinkColumn.style === ButtonStyle.accent ? 'accent' : null"
+                    [routerLink]="[routerLinkColumn.routerLink, row[routerLinkColumn.queryParams]]">
+              <mat-icon>{{routerLinkColumn.icon}}</mat-icon>
+            </button>
+            <button *ngIf="routerLinkColumn.style === ButtonStyle.stroked_accent"
+                    matTooltip="{{routerLinkColumn.tooltip ? routerLinkColumn.tooltip : null}}" mat-stroked-button
+                    color="accent" [routerLink]="[routerLinkColumn.routerLink, row[routerLinkColumn.queryParams]]">
+              <mat-icon>{{routerLinkColumn.icon}}</mat-icon>
+            </button>
+            <button *ngIf="routerLinkColumn.style === ButtonStyle.stroked_info"
+                    matTooltip="{{routerLinkColumn.tooltip ? routerLinkColumn.tooltip : null}}" mat-stroked-button
+                    class="info" [routerLink]="[routerLinkColumn.routerLink, row[routerLinkColumn.queryParams]]">
+              <mat-icon>{{routerLinkColumn.icon}}</mat-icon>
+            </button>
+          </ng-container>
+        </div>
+        <span *ngSwitchCase="ColumnTypes.checkbox">
+          <mat-checkbox [checked]="row[item.property]" disabled>
+          </mat-checkbox>
+        </span>
+        <span *ngSwitchCase="ColumnTypes.date">
+          {{ row[item.property] | dateTime }}
+        </span>
+        <span *ngSwitchCase="ColumnTypes.url">
+          <span [innerHtml]="row[item.property] | linky: {truncate: { length: 30, location: 'middle'}}"></span>
+        </span>
+        <span *ngSwitchDefault>
+          {{ row[item.property] }}
+        </span>
+      </mat-cell>
+    </ng-container>
+    <ng-container *ngIf="expandable" matColumnDef="expandedDetail">
+      <mat-cell *matCellDef="let row" [attr.colspan]="displayedColumnNames.length">
+        <div class="expanded-element-detail" [@detailExpand]="row === expandedElement ? 'expanded' : 'collapsed'">
+          <ng-container *ngFor="let expandedColumn of displayedExpandableColumns">
+            <ng-container *ngIf="row[expandedColumn.property]" [ngSwitch]="expandedColumn.type">
+              <span *ngSwitchCase="ColumnTypes.url">
+                <span class="label">{{ expandedColumn.name }}</span>
+                <span
+                  [innerHtml]="row[expandedColumn.property] | linky: {truncate: { length: 30, location: 'middle'}}"></span>
+              </span>
+              <div *ngSwitchDefault>
+                <span class="label">{{ expandedColumn.name }}</span>
+                {{row[expandedColumn.property]}}
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnNames"></mat-header-row>
+    <ng-container *ngIf="expandable === true;then expandable, else unexpandable"></ng-container>
+    <ng-template #expandable>
+      <mat-row *matRowDef="let row; columns: displayedColumnNames;" class="expanded-element-row"
+               [class.expanded-row]="expandedElement === row" (click)="expandedElement = expandedElement === row ? null : row">
+      </mat-row>
+      <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="expanded-detail-row"></mat-row>
+    </ng-template>
+    <ng-template #unexpandable>
+      <mat-row *matRowDef="let row; columns: displayedColumnNames;"></mat-row>
+    </ng-template>
+  </mat-table>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>
