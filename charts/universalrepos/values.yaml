@@ -17,6 +17,8 @@ service:
   name: universalrepos
   type: ClusterIP
   externalPort: 5000
+  internalPort: 5000
+  externalPort: 80
   internalPort: 80
   annotations:
     fabric8.io/expose: "true"

@@ -1,0 +1,90 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/dim/RiderProjects/UniversalRepos/allrepos/UniversalRepos/UniversalRepos.Datas/UniversalRepos.Datas.csproj": {}
+  },
+  "projects": {
+    "/home/dim/RiderProjects/UniversalRepos/allrepos/UniversalRepos/UniversalRepos.Datas/UniversalRepos.Datas.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/dim/RiderProjects/UniversalRepos/allrepos/UniversalRepos/UniversalRepos.Datas/UniversalRepos.Datas.csproj",
+        "projectName": "UniversalRepos.Datas",
+        "projectPath": "/home/dim/RiderProjects/UniversalRepos/allrepos/UniversalRepos/UniversalRepos.Datas/UniversalRepos.Datas.csproj",
+        "packagesPath": "/home/dim/.nuget/packages/",
+        "outputPath": "/home/dim/RiderProjects/UniversalRepos/allrepos/UniversalRepos/UniversalRepos.Datas/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/dim/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[8.3.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0-preview4.19216.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0-preview4.19216.3, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "RestEase": {
+              "target": "Package",
+              "version": "[1.4.9, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
